@@ -167,3 +167,7 @@ Commit `Assets`, `Packages`, `ProjectSettings`, this README, `LICENSE`, and Unit
 
 The original source code and documentation are licensed under the [MIT License](LICENSE), with copyright credited to **Robbie Ma**. Redistributors must keep the copyright and permission notice.
 
+### AI Usage
+
+All main functions and major things were 100% done by me, a human. But code polishing, debugging, and editing this readme was by AI.
+
