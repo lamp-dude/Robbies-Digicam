@@ -1,6 +1,6 @@
 # Robbie's Digicam
 
-[![Donate on Stripe](https://img.shields.io/badge/Donate-Stripe-635BFF?logo=stripe&logoColor=white)](https://buy.stripe.com/5kQcN4fyB5Jp0p8aY91VK03) - very much appreciated!!
+[![Since this is open-source, a donation would be much appreciated!](https://img.shields.io/badge/Donate-Stripe-635BFF?logo=stripe&logoColor=white)](https://buy.stripe.com/5kQcN4fyB5Jp0p8aY91VK03)
 
 **A configurable early 2000s digital camera look for Unity URP.** Robbie's Digicam combines a low resolution 4:3 display with digital zoom, center ray autofocus, CCD style color noise, simulated video compression, washed highlights, and convolution directional bloom. A first person playground scene shows the effects together.
 
