@@ -25,6 +25,3 @@
 .DS_Store
 Thumbs.db
 
-# Unverified local demo texture; the public material uses a CC0 texture instead.
-/Assets/Robbie's Digicam/Demo/image (1).png
-/Assets/Robbie's Digicam/Demo/image (1).png.meta

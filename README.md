@@ -92,12 +92,12 @@ Each custom effect reads a Volume component and records a URP Render Graph pass.
 The streak is a **direct two dimensional convolution** over 9 horizontal by 129 vertical samples. At image coordinate $u$, the shader computes:
 
 $$
-S(u)=T\odot\frac{\displaystyle\sum_{i=-4}^{4}\sum_{j=-64}^{64} B(u+\Delta_{ij})K_{ij}}{\displaystyle\max\!\left(\sum_{i=-4}^{4}\sum_{j=-64}^{64} \operatorname{luma}(K_{ij}),\,10^{-4}\right)},
+S(u)=T\odot\frac{\displaystyle\sum_{i=-4}^{4}\sum_{j=-64}^{64} B(u+\Delta_{ij})K_{ij}}{\displaystyle\max\!\left(\sum_{i=-4}^{4}\sum_{j=-64}^{64} w\cdot K_{ij},\,10^{-4}\right)},
 \qquad
 \Delta_{ij}=\left(\frac{12(i/4)}{W},\frac{R(j/64)}{H}\right).
 $$
 
-Here $B$ is the bright texture, $K_{ij}$ is the RGB kernel sample **including the shader's end taper**, $T$ is `Stripe Tint`, $R$ is `Vertical Radius`, and $W,H$ are source dimensions. The narrow horizontal span and long vertical span give the light its streak. The denominator normalizes by kernel luminance. This sampled convolution is neither an FFT nor a separable blur.
+Here $B$ is the bright texture, $K_{ij}$ is the RGB kernel sample **including the shader's end taper**, $w=(0.2126,0.7152,0.0722)$ is the luminance weight vector, $T$ is `Stripe Tint`, $R$ is `Vertical Radius`, and $W,H$ are source dimensions. The narrow horizontal span and long vertical span give the light its streak. The denominator normalizes by kernel luminance. This sampled convolution is neither an FFT nor a separable blur.
 
 A separate halo uses a 17 tap horizontal blur followed by a 17 tap vertical blur. After URP post processing, the shader adds both results to the image:
 
@@ -161,4 +161,3 @@ Commit `Assets`, `Packages`, `ProjectSettings`, this README, `LICENSE`, and Unit
 
 The original source code and documentation are licensed under the [MIT License](LICENSE), with copyright credited to **Robbie Ma**. Redistributors must keep the copyright and permission notice.
 
-The MIT grant does not cover third-party media. The demo includes Poly Haven's [White Stucco texture](https://polyhaven.com/a/white_stucco) and [Kloofendal sky](https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky), both published under [CC0](https://polyhaven.com/license). A local floor texture with unverified provenance is excluded from the public repository; its material uses White Stucco instead.
